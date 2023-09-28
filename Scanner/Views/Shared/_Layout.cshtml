@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Onboarding Portal">
+    <meta name="author" content="The VisitingAid">
+    <link href="~/css/site.css" rel="stylesheet" type="text/css">
+    <link href="~/css/wizard.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/my-custom-styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/skins/style-switcher.css" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/assets/ico/kingadmin-favicon144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/assets/ico/kingadmin-favicon114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/assets/ico/kingadmin-favicon72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/assets/ico/kingadmin-favicon57x57.png">
+    <link rel="shortcut icon" href="~/assets/ico/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/datatable/datatables.min.css" />
+
+</head>
+
+<body class="dashboard">
+    <div id="wrapper" class="wrapper">
+        <div class="top-bar">
+            <div class="container">
+                <div class="clearfix">
+                    <a href="#" class="pull-left toggle-sidebar-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="pull-left">
+                        <h4 id="visitingAidOnboarding" style=" font-family:latolight">
+                            <span>
+                                Visiting Aid Scanner
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="pull-right right">
+                        <div class="top-bar-right">
+                            <div class="logged-user">
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                        <span class="name" style="margin-right:5px"></span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="left-sidebar" class="left-sidebar ">
+            <div class="sidebar-scroll">
+                <nav class="main-nav">
+                    <ul class="main-menu" style="margin-bottom:0px">
+                        <li>
+                            <a asp-action="Files" asp-controller="TimesheetDocuments">
+                                <i class="fa fa-file"></i>
+                                <span class="text" style="opacity: 1;">
+                                    Timesheet Documents
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="main-content-wrapper" class="content-wrapper ">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <ul class="breadcrumb">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert alert-danger" id="mainError" style="display: none;">
+                <span id="mainErrorMessage"></span>
+                <button type="button" class="close">×</button>
+            </div>
+            <div class="content">
+                @RenderBody()
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer">
+        &copy; 2023 Made with &hearts; by <a href="https://www.visitingaid.com/">VisitingAid</a> team
+    </footer>
+    <div class="del-style-switcher" style="right: 250px;">
+        <div class="del-switcher-toggle toggle-hide">
+        </div>
+        <form>
+            <section class="del-section del-section-skin">
+                <h5 class="del-switcher-header">Choose Skins:</h5>
+                <ul>
+                    <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="assets/css/skins/slategray.css">Slate Gray</a></li>
+                    <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="assets/css/skins/darkblue.css">Dark Blue</a></li>
+                    <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="assets/css/skins/darkbrown.css">Dark Brown</a></li>
+                    <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="assets/css/skins/lightgreen.css">Light Green</a></li>
+                    <li><a href="#" title="Orange" class="switch-skin orange" data-skin="assets/css/skins/orange.css">Orange</a></li>
+                    <li><a href="#" title="Red" class="switch-skin red" data-skin="assets/css/skins/red.css">Red</a></li>
+                    <li><a href="#" title="Teal" class="switch-skin teal" data-skin="assets/css/skins/teal.css">Teal</a></li>
+                    <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="assets/css/skins/yellow.css">Yellow</a></li>
+                </ul>
+                <button type="button" class="switch-skin-full fulldark selected" data-skin="assets/css/skins/fulldark.css">Full Dark</button>
+                <button type="button" class="switch-skin-full fullbright" data-skin="assets/css/skins/fullbright.css">Full Bright</button>
+            </section>
+            <label class="fancy-checkbox">
+                <input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span>
+            </label>
+            <p><a href="#" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        </form>
+    </div>
+
+    <script src="~/assets/js/plugins/moment/moment.min.js"></script>
+    <script src="~/assets/js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="~/assets/js/bootstrap/bootstrap.js"></script>
+
+    <script src="~/assets/js/deliswitch.js"></script>
+
+    <script src="~/assets/js/plugins/parsley-validation/parsley.min.js"></script>
+    <script src="~/assets/js/jquery.mask.js"></script>
+    <script src="~/assets/js/plugins/jquery-gritter/jquery.gritter.min.js"></script>
+    <script src="~/assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/js/king-components.js"></script>
+    <script src="~/assets/js/king-common.js"></script>
+
+
+    <script src="~/assets/js/plugins/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+
+    <script src="~/assets/js/plugins/jquery-mapael/jquery.mapael.js"></script>
+    <script src="~/assets/js/plugins/raphael/maps/usa_states.js"></script>
+    <script src="~/assets/js/king-chart-stat.js"></script>
+    <script src="~/assets/js/king-table.js"></script>
+    <script src="~/assets/js/king-components.js"></script>
+    <script src="~/assets/js/plugins/parsley-validation/parsley.min.js"></script>
+    <script src="~/assets/js/jquery.mask.js"></script>
+    <script src="~/assets/js/plugins/jquery-gritter/jquery.gritter.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

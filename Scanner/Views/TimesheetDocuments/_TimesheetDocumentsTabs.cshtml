@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+    var tab = ViewData["Tab"].ToString();
+}
+
+<ul class="nav nav-tabs">
+    <li class="@( ViewData["Tab"].ToString() == "Files"?"active":"")"><a asp-action="Files" asp-controller="TimesheetDocuments">Files</a></li>
+    <li class="@( ViewData["Tab"].ToString() == "Timesheets"?"active":"")"><a asp-action="Timesheets" asp-controller="TimesheetDocuments">Timesheets</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade in active">
+        @RenderBody()
+    </div>
+</div>
